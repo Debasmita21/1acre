@@ -43,15 +43,15 @@ const CarouselCard = (props) => {
   };
 
   return (
-    <div className="shadow-lg h-96 w-80 rounded-lg m-4 cursor-pointer">
+    <div className="shadow-lg md:h-96 md:w-80 sm:h-80 sm:w-56 h-72 w-48 rounded-lg m-4 cursor-pointer">
       <Carousel {...carouselSettings}>
         {plotData.land_media.map((media, index) => (
           <div key={index} className="">
-            <img className="w-80 h-52 rounded-t-lg" alt={`plot img ${index}`} src={media.image} />
+            <img className="md:w-80 md:h-52 h-36 w-44 rounded-t-lg" alt={`plot img ${index}`} src={media.image} />
           </div>
         ))}
       </Carousel>
-      <div className="">
+      <div className="mt-2">
         <h2 className="font-bold">{plotData?.village_name}, {plotData?.mandal_name}</h2>
         <h2 className="font-bold">{plotData?.district_name} (dt)</h2>
         <div className="flex items-center">

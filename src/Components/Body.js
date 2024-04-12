@@ -33,14 +33,18 @@ const Body = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []); // Add and remove scroll event listener
 
-  // Split the plotList into chunks of 2 elements each
+  
+  // Calculate number of columns based on screen width
+  const numColumns = window.innerWidth < 768 ? 1 : 3;
+
+  // Split the plotList into chunks of numColumns elements each
   const rows = [];
-  for (let i = 0; i < plotList.length; i += 2) {
-    rows.push(plotList.slice(i, i + 3));
+  for (let i = 0; i < plotList.length; i += numColumns) {
+    rows.push(plotList.slice(i, i + numColumns));
   }
 
   return (
-    <div className="flex-wrap mt-12 ml-20">
+    <div className="flex-wrap md:m-20 m-12 absolute">
       {rows.map((row, index) => (
         <div key={index} className="flex flex-row mb-8">
           {row.map((plot) => (
